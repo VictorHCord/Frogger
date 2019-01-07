@@ -1,6 +1,3 @@
-"use strict";
-//Variavel global
-
 // Enemies our player must avoid
 class Enemy {
     constructor(y){
@@ -34,13 +31,13 @@ class Enemy {
 
 class Player {
     constructor(y){
-        //Imagem do hogador
+        //Imagem do jogador
         this.sprite = 'images/char-boy.png';
     //Posição incial do jogador
     this.x = 210;
     this.y = 470;
     //determinando a velocidade
-    this.speed = 50 + Math.floor(Math.random() *150 )
+    this.speed = 50 + Math.floor(Math.random() *120 )
 
     };
     update(){
@@ -48,11 +45,6 @@ class Player {
             //Localização do jogador
             this.x = 210;
             this.y = 470;
-            alert({
-                title: 'Parabens',
-                text: 'Voce ganhou o jogo',
-                type: 'success'
-            });
         };
 
         Player.prototype.handleInput = function (keyPress) {
