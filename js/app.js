@@ -1,56 +1,53 @@
 'use strict'
 
-// Enemies our player must avoid
+// Informações sobre o inimigo
 class Enemy {
     constructor(y){
-            //Imagem do inimigo
-        this.sprite = 'images/enemy-bug.png';
+    //imagem do inimigo
+    this.sprite = 'images/enemy-bug.png';
+    //ponto inicial
+    this.x = 0;
+    this.y = y;
+    //Velocidade do inimigo
+    this.speed = 50 + Math.floor(Math.random() * 110);
+    
+};
 
-        //Posição incial do inimigo
-        this.x = 0;
-        this.y = y;
-        //determinando a velocidade do inimigo
-        this.speed = 50 + Math.floor(Math.random() * 120);
-
-    }
-    update (dt) {
+update(dt) {
+    if(this.x <= 500){
         this.x += this.speed * dt;
-        if(this.x > 500){
-            this.x = -50;
-            this.speed = 50 + Math.floor(Math.random()* 120)
-        }
-        
-        //verificando a posição
-        if(this.x >= player.x - 30 && this.x <= player.x + 30 && this.y >= player.y - 10 && this.y <= player.y + 1){
-            player.x = 200;
-            player.y = 400;
+
+    }else{
+        this.x = - 2;
+    }
+    if(player.x >= this.x - 30 && player.x <= this.x + 30
+        && player.y >= this.y - 30 && player.y <= this.y + 30){
+            player.x = 210;
+            player.y = 410;
         }
     };
-    render(){
+    render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
-}
+};
 
 class Player {
-    constructor(y){
+    constructor() {
         //Imagem do jogador
         this.sprite = 'images/char-boy.png';
-    //Posição incial do jogador
-    this.x = 210;
-    this.y = 470;
-    //determinando a velocidade
-    this.speed = 50 + Math.floor(Math.random() *120 )
-
+        //Posição inicial do joogador
+        this.x = 200;
+        this.y = 410;
     };
-    update(){
-        if(this.y <= 50 ){
-            //Localização do jogador
-            this.x = 210;
-            this.y = 470;
+    update() {
+        if (this.y <= 50) {
+            //resetando a localização do jogador
+            this.x = 200;
+            this.y = 410;
         };
 
         Player.prototype.handleInput = function (keyPress) {
-            // Definindo o eixo
+            // Setting x and y axis boundaries
             if (keyPress == 'left' && this.x > 10) {
                 this.x -= 102;
             };
@@ -68,27 +65,23 @@ class Player {
             };
         };
     }
-    render(){
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+};
+// Draw the enemy on the screen, required method for game
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-
-// Posicionaod os inimigos dentro do array
+//Array dos inimigos
 const allEnemies = [new Enemy(60), new Enemy(60), new Enemy(140), new Enemy(225), new Enemy(225)];
 
 const player = new Player();
-
-document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+document.addEventListener('keyup', function (e) {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
