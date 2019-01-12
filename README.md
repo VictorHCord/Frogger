@@ -1,22 +1,66 @@
-# Classic Arcade Game Clone Project
+# Projeto Front-end UDACITY: FROGGER.
 
-## Table of Contents
+Este é um projeto do curso de front-end avançado do curso da udacity
+fazendo a utilização da ferramenta ES6 aonde foi feito um desenvolvimento
+de um jogo chamado FROGGER.
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+### Pre-Requisitos
 
-## Instructions
+- Conhecimento em HTML, CSS E ES6
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+- Foi utilizado no projeto ES6
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+### Anotações
+Este projeto ainda está em desenvolvimento, essa versão disponibilizada no Github
+é a 1 versão do projeto com possiveis alterações.
+Este projeto foi construido em conjunto com o curso da **Udacity** `NanoDegree Front-end avançado`
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 
-## Contributing
+### Não foi Utilizado API (POSSIVEL QUE TENHA ALTERAÇÃO DO PROJETO FUTURAMENTE)
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-# frontend-nanodegree-arcade-game
-# Frogger
+### Example
+
+- Exemplo de como foi feito o codigo para algumas funcionalidades
+
+```
+// Informações sobre o inimigo
+class Enemy {
+    constructor(y){
+    //imagem do inimigo
+    this.sprite = 'images/enemy-bug.png';
+    //ponto inicial
+    this.x = 0;
+    this.y = y;
+    //Velocidade do inimigo
+    this.speed = 50 + Math.floor(Math.random() * 110);
+    
+};
+
+update(dt) {
+    if(this.x <= 500){
+        this.x += this.speed * dt;
+
+    }else{
+        this.x = - 2;
+    }
+    if(player.x >= this.x - 30 && player.x <= this.x + 30
+        && player.y >= this.y - 30 && player.y <= this.y + 30){
+            player.x = 210;
+            player.y = 410;
+        }
+    };
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    };
+};
+```
+
+### E-mail para contatos
+[Victor Hugo Cordeiro] = *victor_hugo.cordeiro@hotmail.com*
+
+
+Autor do projeto: Victor Hugo Cordeiro
+---
+
+
