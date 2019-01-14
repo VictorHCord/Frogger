@@ -13,7 +13,7 @@ class Enemy {
     
 };
 
-update(dt) {
+update(dt,Player) {
     if(this.x <= 500){
         this.x += this.speed * dt;
 
@@ -22,14 +22,14 @@ update(dt) {
     }
     if(player.x >= this.x - 30 && player.x <= this.x + 30
         && player.y >= this.y - 30 && player.y <= this.y + 30){
-            player.x = 210;
+            player.x = 200;
             player.y = 410;
         }
     };
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
-};
+}
 
 class Player {
     constructor() {

@@ -17,7 +17,9 @@ Este projeto ainda está em desenvolvimento, essa versão disponibilizada no Git
 Este projeto foi construido em conjunto com o curso da **Udacity** `NanoDegree Front-end avançado`
 
 
-### Não foi Utilizado API (POSSIVEL QUE TENHA ALTERAÇÃO DO PROJETO FUTURAMENTE)
+### Como fazer o jogo funcionar
+Dentro da do arquivo **INDEX.HTML** tem uma linkagem para os
+arquivos em JAVASCRIPT
 
 ### Example
 
