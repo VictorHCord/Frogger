@@ -1,35 +1,46 @@
 'use strict'
 
-// Informações sobre o inimigo
+// Enemies our player must avoid
 class Enemy {
-    constructor(y){
-    //imagem do inimigo
-    this.sprite = 'images/enemy-bug.png';
-    //ponto inicial
-    this.x = 0;
-    this.y = y;
-    //Velocidade do inimigo
-    this.speed = 50 + Math.floor(Math.random() * 110);
-    
-};
+    constructor(y) {
+        //Enemy image
+        this.sprite = 'images/enemy-bug.png';
+        //Enemy positioning
+        this.x = 0;
+        this.y = y;
+        //Enemy speed
+        this.speed = 50 + Math.floor(Math.random() * 120); // Random enemy speed
+    }
 
-update(dt,Player) {
-    if(this.x <= 500){
+    update(dt) {
+        //Adjust speed across browsers
         this.x += this.speed * dt;
 
-    }else{
-        this.x = - 2;
-    }
-    if(player.x >= this.x - 30 && player.x <= this.x + 30
-        && player.y >= this.y - 30 && player.y <= this.y + 30){
+        // Prevent the enemies to "run away" 
+        if (this.x > 500) {
+            this.x = -50;
+            this.speed = 50 + Math.floor(Math.random() * 150)
+        }
+        //Check Collision player x enemy
+        
+        if (player.x < this.x + 60 &&
+            player.x + 37 > this.x &&
+            player.y < this.y + 25 &&
+            30 + player.y > this.y) {
             player.x = 200;
             player.y = 410;
         }
     };
+    // Drawing enemy on the screen
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
 }
+
+// Draw the enemy on the screen, required method for game
+Enemy.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 class Player {
     constructor() {
