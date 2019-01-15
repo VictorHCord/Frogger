@@ -22,6 +22,7 @@ class Enemy {
             this.x = -50;
             this.speed = 50 + Math.floor(Math.random() * 150);
         }
+        
             if (player.x < this.x + 60 &&
                     player.x + 37 > this.x &&
                     player.y < this.y + 25 &&
@@ -55,7 +56,7 @@ class Player {
             //resetando a localização do jogador
             this.x = 200;
             this.y = 410;
-            alert("Parabéns voce completou");
+            window.alert("Parabéns voce completou");
         };
 
         Player.prototype.handleInput = function (keyPress) {

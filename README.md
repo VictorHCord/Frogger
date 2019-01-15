@@ -16,10 +16,15 @@ Este projeto ainda está em desenvolvimento, essa versão disponibilizada no Git
 é a 1 versão do projeto com possiveis alterações.
 Este projeto foi construido em conjunto com o curso da **Udacity** `NanoDegree Front-end avançado`
 
+###Desafio
+O Jogador deve chegar ao rio sem ser atingido pelo inimigo, caso o player
+seja atingido pelo inimigo o jogo reiniciará, caso consiga passar sem ser atingido o player irá ganhar.
 
-### Como fazer o jogo funcionar
-Dentro da do arquivo **INDEX.HTML** tem uma linkagem para os
-arquivos em JAVASCRIPT
+##Jogar
+Utilize as setas do teclado para movimentar o personagem. 
+
+###Com fazer para jogar
+Dentro do projeto tem 2 pastas importante o **HTML** que é a pagina inicial do jogo, ao abrir esse item conseguira jogar normalmente e o **APP.JS** que está linkado na pagina para fazer o jogo rodar normalmente
 
 ### Example
 
