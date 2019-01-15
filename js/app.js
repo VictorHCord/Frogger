@@ -9,28 +9,28 @@ class Enemy {
         this.x = 0;
         this.y = y;
         //Enemy speed
-        this.speed = 50 + Math.floor(Math.random() * 120); // Random enemy speed
+        this.speed = 50 + Math.floor(Math.random() * 170); // Random enemy speed
     }
 
     update(dt) {
+        
         //Adjust speed across browsers
         this.x += this.speed * dt;
 
         // Prevent the enemies to "run away" 
         if (this.x > 500) {
             this.x = -50;
-            this.speed = 50 + Math.floor(Math.random() * 150)
+            this.speed = 50 + Math.floor(Math.random() * 150);
         }
-        //Check Collision player x enemy
-        
-        if (player.x < this.x + 60 &&
-            player.x + 37 > this.x &&
-            player.y < this.y + 25 &&
-            30 + player.y > this.y) {
-            player.x = 200;
-            player.y = 410;
+            if (player.x < this.x + 60 &&
+                    player.x + 37 > this.x &&
+                    player.y < this.y + 25 &&
+                    30 + player.y > this.y) {
+                    player.x = 200;
+                    player.y = 410;
         }
     };
+    
     // Drawing enemy on the screen
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -55,6 +55,7 @@ class Player {
             //resetando a localização do jogador
             this.x = 200;
             this.y = 410;
+            alert("Parabéns voce completou");
         };
 
         Player.prototype.handleInput = function (keyPress) {
@@ -67,7 +68,7 @@ class Player {
                 this.y -= 85;
             };
 
-            if (keyPress == 'right' && this.x < 405) {
+            if (keyPress == 'right' && this.x < 400) {
                 this.x += 102;
             };
 
